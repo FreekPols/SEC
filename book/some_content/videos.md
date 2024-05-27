@@ -22,21 +22,19 @@ updated 3:
 ```{eval-rst}
 .. raw:: html
 
-<<iframe width="560"
-height="315"
-src="https://www.youtube.com/embed/oL4-ipL62pQ?si=YXVTihoQOm8bSDvu"
-title="YouTube video player"
-frameborder="0"
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-referrerpolicy="strict-origin-when-cross-origin"
-allowfullscreen></iframe>>
+<<iframe
+    width="600"
+    height="300"
+    src="https://www.youtube.com/embed/UCb-b82tzLo?align=center"
+    frameborder="0"
+    allowfullscreen></iframe>>
 ```
 
 or 
 
 <iframe
-    width="600"
-    height="300"
+    width="70%"
+    
     src="https://www.youtube.com/embed/UCb-b82tzLo?align=center"
     frameborder="0"
     allowfullscreen
