@@ -6,7 +6,7 @@ MUDE videos are uploaded to the YouTube channel. To embed them in the Jupyter Bo
   
   <paste the HTML code here>
   ```
-
+updated: 
 ```{eval-rst}
 .. raw:: html
 
@@ -17,7 +17,7 @@ title="YouTube video player"
 frameborder="0"
 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 referrerpolicy="strict-origin-when-cross-origin"
-allowfullscreen></iframe>>
+allowfullscreen></iframe>
 ```
 
 or 
