@@ -18,7 +18,7 @@ MUDE videos are uploaded to the YouTube channel. To embed them in the Jupyter Bo
   
   <paste the HTML code here>
   ```
-updated 6: 
+updated 9: 
 ```{eval-rst}
 .. raw:: html
 
@@ -30,7 +30,8 @@ or from the videobook from Jacob and Wim:
 <iframe
     width="560"   
     height="315"
-    src="https://www.youtube.com/embed/UCb-b82tzLo?align=center"
+    src="https://www.youtube.com/embed/UCb-b82tzLo?"
+    align="center"
     frameborder="0"
     allowfullscreen
 ></iframe>
@@ -43,3 +44,16 @@ VideoWidth=600
 YouTubeVideo("YDBr1Lof_mI", width=VideoWidth, align='center')
 ```
 the last one requires to run the markdown file setting in config file and additional python iframe at the top of the page...
+
+
+this one should scale with the width of the screen:
+<div style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%;">
+    <iframe
+        src="https://www.youtube.com/embed/UCb-b82tzLo"
+        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+    ></iframe>
+</div>
+
