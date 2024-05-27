@@ -25,11 +25,11 @@ updated 6:
     <iframe width="560" height="315" src="https://www.youtube.com/embed/p-xaYd0hCJ0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 ```
 
-or 
+or from the videobook from Jacob and Wim:
 
 <iframe
-    width="70%"   
-    height="70%"
+    width="560"   
+    height="315"
     src="https://www.youtube.com/embed/UCb-b82tzLo?align=center"
     frameborder="0"
     allowfullscreen
