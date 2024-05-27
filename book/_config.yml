@@ -3,7 +3,7 @@ author: TeachBooks Team from Delft university of Technology, built with <a href=
 logo: figures/TUDelft_logo_rgb.png #add your own logo here
 
 execute:
-  execute_notebooks: "off"
+  execute_notebooks: "on"
 
 only_build_toc_files: true
 
