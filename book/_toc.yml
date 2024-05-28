@@ -11,8 +11,9 @@ parts:
 # END REMOVE-FROM-PUBLISH
     - file: references.md
     - file: credits.md
-    - file: some_content/videos
+    
   - caption: Demos
     chapters:
     - file: some_content/demo03/demo03
     - file: some_content/demo97/demo97
+    - file: some_content/videos

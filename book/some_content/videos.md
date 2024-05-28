@@ -37,12 +37,14 @@ or from the videobook from Jacob and Wim:
 ></iframe>
 
 or: 
+
 ```{code-cell} ipython3
 :tags: [remove-input]
 from IPython.display import YouTubeVideo
 VideoWidth=600
 YouTubeVideo("YDBr1Lof_mI", width=VideoWidth, align='center')
 ```
+
 the last one requires to run the markdown file setting in config file and additional python iframe at the top of the page...
 
 
@@ -103,6 +105,7 @@ Videos uploaded to YouTube can be embedded in the Jupyter Book. There are severa
     allowfullscreen
     ></iframe>
 ```
+
 Resulting in the video below:
     <iframe
     width="560"   
@@ -129,25 +132,26 @@ Resulting in the video below:
 ```
 With the resulting output:
 <div style="display: flex; justify-content: center;">
-<div style="position: relative; width: 70%; height: 0; padding-bottom: 56.25%;">
-    <iframe
+    <div style="position: relative; width: 70%; height: 0; padding-bottom: 56.25%;">
+        <iframe
         src="https://www.youtube.com/embed/YDBr1Lof_mI?si=RhTC31XHv-6gL4Kl"
         style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
         frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen
-    ></iframe>
-</div>
+        ></iframe>
+    </div>
 </div>
 
 4. Another option is to use a python coding cell. As this code cell should be run when the book is made, you have to change the config file and set `execute_notebooks:` to force. This comes with the downside that it takes considerable more time to deploy the book.
-
+```{code-cell}
     ```{code-cell} ipython3
     :tags: [remove-input]
     from IPython.display import YouTubeVideo
     VideoWidth=600
     YouTubeVideo("YDBr1Lof_mI", width=VideoWidth, align='center')
     ```
+```
 
 Moreover, it requires one to have this code at the top of your markdown file:
 ```{code-cell}
