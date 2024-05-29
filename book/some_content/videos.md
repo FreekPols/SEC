@@ -17,12 +17,12 @@ Videos uploaded to YouTube can be embedded in the Jupyter Book. There are severa
 
 1. To embed them in the Jupyter Book, first obtain the embedding link of the video. In order to do so, go to the *YouTube* page of the video (so not the Brightspace page), then click *share* in the description box. There should be a button *embed*, click that. Copy the HTML code that appears in the panel. Then, to embed the video, use the following 
 
-> ```{code-cell}
->    ```{eval-rst}
->    .. raw:: html
+>   ```{code-cell}
+>      ```{eval-rst}
+>      .. raw:: html
 >    
->    <paste the HTML code here>
->    ```
+>      <paste the HTML code here>
+>   ```
 
 **Example:**
 ```{eval-rst}
