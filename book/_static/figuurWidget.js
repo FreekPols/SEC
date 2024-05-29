@@ -1,20 +1,12 @@
-/*  Note that ipywidgets tend to behave differently from other interactive visualization libraries. 
-*   They interact both with Javascript, and with Python. Some functionality in ipywidgets may not work in default Jupyter Book pages 
-*   (because no Python kernel is running). You may be able to get around this with tools for remote kernels, like thebe.
-*
-*   Javascript is het makkelijkst voor nu omdat sommige functionaliteiten in python niet beschikbaar zijn. 
-*/
-
 const addFigureForm = () => {
-
     // Dynamically create and append the form
     var form = document.createElement('form');
 
     // Name input label + form
     var nameLabel = document.createElement('label');
     nameLabel.setAttribute('for', 'name');
-    nameLabel.textContent = 'Label:'; //site tekst
-    form.appendChild(nameLabel);    
+    nameLabel.textContent = 'Label:';
+    form.appendChild(nameLabel);
     form.appendChild(document.createElement('br'));
 
     // Referentienaam
@@ -29,7 +21,7 @@ const addFigureForm = () => {
     // Image location input label + form
     var imageLabel = document.createElement('label');
     imageLabel.setAttribute('for', 'imageLocation');
-    imageLabel.textContent = 'Image Location + name + extension:'; //site tekst
+    imageLabel.textContent = 'Image Location + name + extension:';
     form.appendChild(imageLabel);
     form.appendChild(document.createElement('br'));
 
@@ -41,13 +33,27 @@ const addFigureForm = () => {
     form.appendChild(imageInput);
     form.appendChild(document.createElement('br'));
 
+    // Width input label + form
+    var widthLabel = document.createElement('label');
+    widthLabel.setAttribute('for', 'width');
+    widthLabel.textContent = 'Width:';
+    form.appendChild(widthLabel);
+    form.appendChild(document.createElement('br'));
+
+    var widthInput = document.createElement('input');
+    widthInput.setAttribute('type', 'text');
+    widthInput.setAttribute('id', 'width');
+    widthInput.setAttribute('name', 'width');
+    widthInput.setAttribute('required', 'true');
+    form.appendChild(widthInput);
+    form.appendChild(document.createElement('br'));
+
     // Caption input label + form
     var captionLabel = document.createElement('label');
     captionLabel.setAttribute('for', 'caption');
     captionLabel.textContent = 'Caption:';
     form.appendChild(captionLabel);
     form.appendChild(document.createElement('br'));
-
 
     var captionInput = document.createElement('input');
     captionInput.setAttribute('type', 'text');
@@ -57,180 +63,26 @@ const addFigureForm = () => {
     form.appendChild(captionInput);
     form.appendChild(document.createElement('br'));
 
-    // Radio buttons
-    var radioLabel = document.createElement('label');
-    radioLabel.textContent = 'Select type:';
-    form.appendChild(radioLabel);
+    // Select table or figure label + form
+    var typeLabel = document.createElement('label');
+    typeLabel.setAttribute('for', 'type');
+    typeLabel.textContent = 'Select Table or Figure:';
+    form.appendChild(typeLabel);
     form.appendChild(document.createElement('br'));
 
-    var types = ['figure', 'table'];
-    for (var i = 0; i < types.length; i++) {
-        var radioInput = document.createElement('input');
-        radioInput.setAttribute('type', 'radio');
-        radioInput.setAttribute('id', types[i]);
-        radioInput.setAttribute('name', 'type');
-        radioInput.setAttribute('value', types[i]);
-        form.appendChild(radioInput);
-
-        var radioInputLabel = document.createElement('label');
-        radioInputLabel.setAttribute('for', types[i]);
-        radioInputLabel.textContent = types[i].charAt(0).toUpperCase() + types[i].slice(1);
-        form.appendChild(radioInputLabel);
-
-        form.appendChild(document.createElement('br'));
-    }
-
-    // Submit button
-    var submitButton = document.createElement('button');
-    submitButton.setAttribute('type', 'button');
-    submitButton.textContent = 'Submit';
-
-    // Function to handle form submission
-    function submitForm() {
-        // Get input values
-        var name = document.getElementById('name').value;
-        var imageLocation = document.getElementById('imageLocation').value;
-        var caption = document.getElementById('caption').value;
-
-        // Get selected radio button value
-        var selectedType = document.querySelector('input[name="type"]:checked');
-        var type = selectedType ? selectedType.value : null;
-        
-        if(type == "figure"){
-            addItem(createFigureReference(imageLocation, name, caption))
-        } else if(type == "table") {
-            addItem(createTableReference(caption, name))
-        }
-    }
-
-    submitButton.addEventListener('click', submitForm);
+    var typeSelect = document.createElement('select');
+    typeSelect.setAttribute('id', 'type');
+    typeSelect.setAttribute('name', 'type');
+    var optionFigure = document.createElement('option');
+    optionFigure.setAttribute('value', 'figure');
+    optionFigure.textContent = 'Figure';
+    typeSelect.appendChild(optionFigure);
+    var optionTable = document.createElement('option');
+    optionTable.setAttribute('value', 'table');
+    optionTable.textContent = 'Table';
+    typeSelect.appendChild(optionTable);
+    form.appendChild(typeSelect);
     form.appendChild(document.createElement('br'));
-    form.appendChild(submitButton);
-
-    // Append the form to the body
-    document.getElementById("figuur_formulier").appendChild(form);
-}
-
-/* LOCAL STORAGE TO SAVE REFERENCES */
-
-let exerciseTarget = "listContainerex";
-let figureTarget = "listContainer";
-
-// Function to save the array to localStorage
-function saveArray(arr, location = 'savedReferences') {
-    localStorage.setItem(location, JSON.stringify(arr));
-}
-
-// Function to display the array on the page
-function displayArray(location = 'savedReferences', target = figureTarget) {
-    var storedArray = JSON.parse(localStorage.getItem(location)) || [];
-    var listContainer = document.getElementById(target);
-    listContainer.innerHTML = '<p><strong>Stored Array:</strong></p>';
-
-    if (storedArray.length === 0) {
-        listContainer.innerHTML += '<p>No items in the array.</p>';
-    } else {
-        var ul = document.createElement('ul');
-
-        storedArray.forEach(function(item, index) {
-            var li = document.createElement('li');
-            let btn = document.createElement('button');
-            btn.onclick = function() {removeItem(index, location, target)};
-            li.innerHTML = item;
-            btn.innerHTML = "Remove";
-            li.appendChild(btn);
-            ul.appendChild(li);
-        });
-
-        listContainer.appendChild(ul);
-    }
-}
-
-// Function to retrieve the array from localStorage
-function getArray(location = 'savedReferences') {
-    return JSON.parse(localStorage.getItem(location)) || [];
-}
-
-// Function to add a new item to the array and save it
-function addItem(newItem, location = 'savedReferences', target = figureTarget) {
-    var storedArray = JSON.parse(localStorage.getItem(location)) || [];
-    storedArray.push(newItem);
-    saveArray(storedArray, location);
-    displayArray(location, target);
-}
-
-// Function to remove an item from the array and save it
-function removeItem(index, location = 'savedReferences', target = figureTarget) {
-    var storedArray = JSON.parse(localStorage.getItem(location)) || [];
-    storedArray.splice(index, 1);
-    saveArray(storedArray, location);
-    displayArray(location, target);
-}
-
-function addExerciseForm(){
-    // Create and append form elements
-    var form = document.createElement('form');
-
-    // Exercise Name input
-    var exerciseNameLabel = document.createElement('label');
-    exerciseNameLabel.textContent = 'Exercise Name:';
-    form.appendChild(exerciseNameLabel);
-    form.appendChild(document.createElement('br'));
-
-
-    var exerciseNameInput = document.createElement('input');
-    exerciseNameInput.setAttribute('type', 'text');
-    exerciseNameInput.setAttribute('id', 'exerciseName');
-    form.appendChild(exerciseNameInput);
-    form.appendChild(document.createElement('br'));
-
-    // Solution Name input
-    var solutionNameLabel = document.createElement('label');
-    solutionNameLabel.textContent = 'Solution Name:';
-    form.appendChild(solutionNameLabel);
-    form.appendChild(document.createElement('br'));
-
-
-    var solutionNameInput = document.createElement('input');
-    solutionNameInput.setAttribute('type', 'text');
-    solutionNameInput.setAttribute('id', 'solutionName');
-    form.appendChild(solutionNameInput);
-    form.appendChild(document.createElement('br'));
-
-    // Exercise Text input (larger textarea)
-    var exerciseTextLabel = document.createElement('label');
-    exerciseTextLabel.textContent = 'Exercise Text:';
-    form.appendChild(exerciseTextLabel);
-    form.appendChild(document.createElement('br'));
-
-
-    var exerciseTextInput = document.createElement('textarea');
-    exerciseTextInput.setAttribute('id', 'exerciseText');
-    form.appendChild(exerciseTextInput);
-    form.appendChild(document.createElement('br'));
-
-    // Solution Text input (larger textarea)
-    var solutionTextLabel = document.createElement('label');
-    solutionTextLabel.textContent = 'Solution Text:';
-    form.appendChild(solutionTextLabel);
-    form.appendChild(document.createElement('br'));
-
-
-    var solutionTextInput = document.createElement('textarea');
-    solutionTextInput.setAttribute('id', 'solutionText');
-    form.appendChild(solutionTextInput);
-    form.appendChild(document.createElement('br'));
-
-    // Function to handle form submission
-    function submitForm() {
-        // Get input values
-        var exerciseName = document.getElementById('exerciseName').value;
-        var solutionName = document.getElementById('solutionName').value;
-        var exerciseText = document.getElementById('exerciseText').value;
-        var solutionText = document.getElementById('solutionText').value;
-
-        addItem(createExercise(exerciseName,solutionName,exerciseText,solutionText), 'savedExercises', exerciseTarget);
-    }
 
     // Submit button
     var submitButton = document.createElement('button');
@@ -243,50 +95,35 @@ function addExerciseForm(){
     document.getElementById("exform").appendChild(form);
 }
 
-//Via voorbeeld boltzmann
-const createFigureReference = (path, name, caption) => {
+const createFigureReference = (path, name, width, caption) => {
     return "<b>Figuur code: </b><br/>"
-        +"```{figure} " + path + "<br/>" 
+        + "```{figure} " + path + "<br/>"
         + "--- <br/>"
-        +  "name: " + name + "<br/>"
+        + "width: " + width + "<br/>"
+        + "name: " + name + "<br/>"
         + "---<br/>"
-        + caption + "<br/> ```<br/>" 
-        + "<b>Figuur referentie: </b><br/>" 
+        + caption + "<br/> ```<br/>"
+        + "<b>Figuur referentie: </b><br/>"
         + "{numref}`{number} &lt" + name + "&gt`";
 }
 
-//Via https://jupyterbook.org/en/stable/content/references.html#reference-tables
-const createTableReference = (caption, name) => {
-    return "<b> tabel code: </b><br/>"
-    +"```{table} " + caption + "<br/>"
-    +":name: " + name + "<br/>"
-    +"hier de code van de tabel </br>"
-    +"``` <br/>"
-    +"<b> tabel referentie: </b><br/>"
-    + "{numref}`" + name + "`";
+const submitForm = () => {
+    var path = document.getElementById('imageLocation').value;
+    var name = document.getElementById('name').value;
+    var width = document.getElementById('width').value;
+    var caption = document.getElementById('caption').value;
+    var type = document.getElementById('type').value;
+
+    if (type === 'figure') {
+        var reference = createFigureReference(path, name, width, caption);
+    } else {
+        var reference = createTableReference(caption, name);
+    }
+
+    // You can handle the output as needed, e.g., display it or save it somewhere
+    console.log(reference);
 }
-
-
-const createExercise = (exerciseName,solutionName,exerciseText,solutionText) => {
-    return "<b> Exercise code: </b> <br/>"
-    + "```{exercise} <br/>"
-    +":label:" + exerciseName + "<br/>"
-    + exerciseText + "<br/>"
-    + "``` <br/>"
-    + "<b> Solution code: </b> <br/>"
-    + "````{solution}" + exerciseName + " <br/>"
-    +":label:" + solutionName + "<br/>"
-    + solutionText + "<br/>"
-    + "```` <br/>";
-}
-
-
-document.addEventListener("DOMContentLoaded", () => {
-    addExerciseForm();
-    displayArray('savedExercises', exerciseTarget);
-});
 
 document.addEventListener("DOMContentLoaded", () => {
     addFigureForm();
-    displayArray();
 });
