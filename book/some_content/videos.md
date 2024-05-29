@@ -28,6 +28,8 @@ Videos uploaded to YouTube can be embedded in the Jupyter Book. There are severa
     ></iframe>
 ```
 
+This HTML-iframe code can be directly included in the markdown file (no need to create a code-cell).
+
 Resulting in the video below:<br>
     <iframe
     width="560"   
@@ -67,14 +69,12 @@ With the resulting output:
 
 **3.** Another option is to use a python coding cell. As this code cell should be run when the book is made, you have to change the config file and set `execute_notebooks:` to force. This comes with the downside that it takes considerable more time to deploy the book.
 ````
-```{code-cell}
     ```{code-cell} ipython3
     :tags: [remove-input]
     from IPython.display import YouTubeVideo
     VideoWidth=600
     YouTubeVideo("YDBr1Lof_mI", width=VideoWidth, align='center')
     ```
-```
 ````
 
 Moreover, it requires one to have this code at the top of your markdown file:
@@ -92,4 +92,4 @@ Moreover, it requires one to have this code at the top of your markdown file:
     name: python3
     ---
 ```
-
+Note that this is not needed when you use a .ipynb (jupyter notebook) file.
