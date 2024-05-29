@@ -12,7 +12,7 @@ kernelspec:
 ---
 One option to embed video, from teachbook:
 
-MUDE videos are uploaded to the YouTube channel. To embed them in the Jupyter Book, first obtain the embedding link of the video. In order to do so, go to the YouTube page of the video (so not the Brightspace page), then click share in the description box. There should be a button embed, click that. Copy the HTML code that appears in the panel. Then, to embed the video, use the following
+Videos can be uploaded to YouTube. To embed these in the Jupyter Book, first obtain the embedding link of the video. In order to do so, go to the YouTube page of the video, then click share in the description box. There should be a button embed, click that. Copy the HTML code that appears in the panel. Then, to embed the video, use the following
   ```{eval-rst}
   .. raw:: html
   
@@ -25,7 +25,7 @@ updated 9:
     <iframe width="560" height="315" src="https://www.youtube.com/embed/p-xaYd0hCJ0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 ```
 
-or from the videobook from Jacob and Wim:
+Another, more direct way to do so is using this code: 
 
 <iframe
     width="560"   
@@ -36,7 +36,7 @@ or from the videobook from Jacob and Wim:
     allowfullscreen
 ></iframe>
 
-or: 
+Another solution is to create a code cell with then uses a Python library: 
 
 ```{code-cell} ipython3
 :tags: [remove-input]
