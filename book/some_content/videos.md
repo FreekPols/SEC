@@ -10,82 +10,19 @@ kernelspec:
   language: python
   name: python3
 ---
-One option to embed video, from teachbook:
 
-Videos can be uploaded to YouTube. To embed these in the Jupyter Book, first obtain the embedding link of the video. In order to do so, go to the YouTube page of the video, then click share in the description box. There should be a button embed, click that. Copy the HTML code that appears in the panel. Then, to embed the video, use the following
-  ```{eval-rst}
-  .. raw:: html
-  
-  <paste the HTML code here>
-  ```
-updated 9: 
-```{eval-rst}
-.. raw:: html
-
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/p-xaYd0hCJ0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-```
-
-Another, more direct way to do so is using this code: 
-
-<iframe
-    width="560"   
-    height="315"
-    src="https://www.youtube.com/embed/UCb-b82tzLo?"
-    align="center"
-    frameborder="0"
-    allowfullscreen
-></iframe>
-
-Another solution is to create a code cell with then uses a Python library: 
-
-```{code-cell} ipython3
-:tags: [remove-input]
-from IPython.display import YouTubeVideo
-VideoWidth=600
-YouTubeVideo("YDBr1Lof_mI", width=VideoWidth, align='center')
-```
-
-the last one requires to run the markdown file setting in config file and additional python iframe at the top of the page...
-
-
-this one should scale with the width of the screen:
-<div style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%;">
-    <iframe
-        src="https://www.youtube.com/embed/UCb-b82tzLo"
-        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
-    ></iframe>
-</div>
-
-and to center your video:
-<div style="display: flex; justify-content: center;">
-    <div style="position: relative; width: 70%; height: 0; padding-bottom: 56.25%;">
-        <iframe
-            src="https://www.youtube.com/embed/YDBr1Lof_mI?si=RhTC31XHv-6gL4Kl"
-            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-        ></iframe>
-    </div>
-</div>
-
-Teachbook content:
 ## Videos
 
 Videos uploaded to YouTube can be embedded in the Jupyter Book. There are several ways to do so:
 
 1. To embed them in the Jupyter Book, first obtain the embedding link of the video. In order to do so, go to the *YouTube* page of the video (so not the Brightspace page), then click *share* in the description box. There should be a button *embed*, click that. Copy the HTML code that appears in the panel. Then, to embed the video, use the following 
 
-```{code-cell}
-    ```{eval-rst}
-    .. raw:: html
-    
-    <paste the HTML code here>
-    ```
-```
+> ```{code-cell}
+>    ```{eval-rst}
+>    .. raw:: html
+>    
+>    <paste the HTML code here>
+>    ```
 
 **Example:**
 ```{eval-rst}
@@ -106,7 +43,7 @@ Videos uploaded to YouTube can be embedded in the Jupyter Book. There are severa
     ></iframe>
 ```
 
-Resulting in the video below:
+Resulting in the video below:<br>
     <iframe
     width="560"   
     height="315"
