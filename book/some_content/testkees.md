@@ -47,7 +47,7 @@ example 1: width (50%) as percentage, align right
 or with div:
 
 ````
-    <div="clear: both;">
+    <div style="clear: both;">
     ```{figure} ../figures/TUDelft_logo_rgb.png
     ---
     width: 50%
@@ -59,10 +59,11 @@ or with div:
     </div>
 ````
 
+<div style="clear: both;">
 and the output
+</div>
 
 <div style="clear: both;">
-
 ```{figure} ../figures/TUDelft_logo_rgb.png
 ---
 width: 50%
@@ -71,11 +72,11 @@ align: right
 ---
 example 3: width (50%) as percentage, align right
 ```
-
 </div>
 
+<div style="clear: both;">
 including a figclass sets the figure to the column at the right.
-
+</div>
 ````
     ```{figure} demo97/demo97_figure1.jpg
     ---
