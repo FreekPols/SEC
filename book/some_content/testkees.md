@@ -42,19 +42,22 @@ example 1: width (50%) as percentage, align right
 ```
 
 or with div:
+
 ````
-<div>
-```{figure} ../figures/TUDelft_logo_rgb.png
----
-width: 50%
-name: demoexample3
-align: right
----
-example 3: width (50%) as percentage, align right
-```
-</div>
+    <div>
+    ```{figure} ../figures/TUDelft_logo_rgb.png
+    ---
+    width: 50%
+    name: demoexample3
+    align: right
+    ---
+    example 3: width (50%) as percentage, align right
+    ```
+    </div>
 ````
+
 and the output
+
 <div>
 ```{figure} ../figures/TUDelft_logo_rgb.png
 ---
