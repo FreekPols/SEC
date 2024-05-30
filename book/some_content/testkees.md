@@ -64,6 +64,7 @@ and the output
 </div>
 
 <div style="clear: both;">
+
 ```{figure} ../figures/TUDelft_logo_rgb.png
 ---
 width: 50%
@@ -72,6 +73,7 @@ align: right
 ---
 example 3: width (50%) as percentage, align right
 ```
+
 </div>
 
 <div style="clear: both;">
