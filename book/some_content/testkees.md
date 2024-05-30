@@ -61,7 +61,7 @@ or with div:
 
 and the output
 
-<div stylle="clear: both;">
+<div style="clear: both;">
 
 ```{figure} ../figures/TUDelft_logo_rgb.png
 ---
