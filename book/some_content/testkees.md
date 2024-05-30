@@ -20,7 +20,7 @@ Using the name label, you can refer to the figure as done with {numref}`Figure {
 You can find more documentation on including figures [here](https://jupyterbook.org/en/stable/content/figures.html). Some examples with different settings:
 
 ````
-    ```{figure} demo97/demo97_figure1.jpg
+    ```{figure} ../figures/TUDelft_logo_rgb.png
     ---
     width: 50%
     name: demoexample1
@@ -32,7 +32,7 @@ You can find more documentation on including figures [here](https://jupyterbook.
 
 provides the output:
 
-```{figure} demo97/demo97_figure1.jpg
+```{figure} ../figures/TUDelft_logo_rgb.png
 ---
 width: 50%
 name: demoexample1
