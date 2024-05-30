@@ -11,10 +11,13 @@ To add a figure, just copy the figure to the correct directory. Then, in your ma
     ---
     height/width: <height or width in pixels>
     name: <name of the figure>
+    align: left / center / right
+    figclass: left blank or "margin"
     ---
     <Figure caption>
     ```
 ````
+
 Using the name label, you can refer to the figure as done with {numref}`Figure {number} <demoexample1>`.
 
 You can find more documentation on including figures [here](https://jupyterbook.org/en/stable/content/figures.html). Some examples with different settings:
@@ -59,6 +62,7 @@ or with div:
 and the output
 
 <div>
+
 ```{figure} ../figures/TUDelft_logo_rgb.png
 ---
 width: 50%
@@ -67,6 +71,7 @@ align: right
 ---
 example 3: width (50%) as percentage, align right
 ```
+
 </div>
 
 including a figclass sets the figure to the column at the right.
