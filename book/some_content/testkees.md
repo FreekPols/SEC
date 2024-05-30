@@ -48,7 +48,7 @@ including a figclass sets the figure to the column at the right.
     ---
     figclass: margin
     width: 50%
-    name: demoexample1
+    name: demoexample2
    
     ---
     example 2:including figclass: margin
@@ -61,7 +61,7 @@ including a figclass sets the figure to the column at the right.
 ---
 figclass: margin
 width: 50%
-name: demoexample1
+name: demoexample2
 ---
 example 2:including figclass: margin
 ```
