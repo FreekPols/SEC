@@ -30,7 +30,18 @@ Or you can use the figure form below where you can specify all information and t
 </div> 
 
 
-You can find more documentation on including figures [here](https://jupyterbook.org/en/stable/content/figures.html).
+You can find more documentation on including figures [here](https://jupyterbook.org/en/stable/content/figures.html). Some examples with different settings:
+
+````
+```{figure} demo97/demo97_figure1.jpg
+---
+width: 50%
+name: demoexample1
+align: right
+---
+example 1: width (50%) as percentage, align right
+```
+````
 
 ```{figure} demo97/demo97_figure1.jpg
 ---
@@ -38,8 +49,19 @@ width: 50%
 name: demoexample1
 align: right
 ---
-example 1: with as percentage
+example 1: width (50%) as percentage, align right
 ```
+
+````
+```{figure} demo97/demo97_figure1.jpg
+---
+width: 50%
+name: demoexample1
+figclass: margin
+---
+example 2:including figclass: margin
+```
+````
 
 ```{figure} demo97/demo97_figure1.jpg
 ---
