@@ -18,3 +18,4 @@ parts:
     - file: some_content/demo97/demo97
     - file: some_content/videos
     - file: some_content/testkees
+    - file: some_content/practicumopdracht
